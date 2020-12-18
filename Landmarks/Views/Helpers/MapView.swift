@@ -30,6 +30,10 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(coordinate: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868))
+        ForEach(["iPhone SE (2nd generation)", "iPhone 12"], id:\.self) { item in
+            MapView(coordinate: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868))
+                .previewDevice(PreviewDevice(rawValue: item))
+                .previewDisplayName(item)
+        }
     }
 }
